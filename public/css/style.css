@@ -1,0 +1,163 @@
+body{
+  background-color: #91a8cc;
+  font-family: Georgia;
+}
+img:hover {
+  border: 3px solid white;
+}
+
+#title{
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+ margin-bottom: 30px;
+
+}
+
+.done{
+  padding-top: 20px;
+ padding-bottom: 20px;
+ padding-left: 20px;
+padding-right: 20px;
+ margin-bottom: 20px;
+ margin-left: 20px;
+ margin-right: 20px;
+ border-radius: 25px;
+
+  background-color: #a9cc91
+}
+
+.notDone{
+  padding-top: 20px;
+ padding-bottom: 20px;
+ padding-left: 20px;
+padding-right: 20px;
+ margin-bottom: 20px;
+ margin-left: 20px;
+ margin-right: 20px;
+ border-radius: 25px;
+
+
+  background-color: #cc9391;
+}
+
+#doneDetails{
+  padding-top: 20px;
+ padding-bottom: 20px;
+ padding-left: 20px;
+padding-right: 20px;
+ margin-bottom: 20px;
+ margin-left: 20px;
+ margin-right: 20px;
+ border-radius: 25px;
+ background-color: #a9cc91;
+
+
+
+}
+
+#notDoneDetails{
+  padding-top: 20px;
+ padding-bottom: 20px;
+ padding-left: 20px;
+padding-right: 20px;
+ margin-bottom: 20px;
+ margin-left: 20px;
+ margin-right: 20px;
+ border-radius: 25px;
+ background-color: #cc9391;
+
+
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.grid2-container {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1.8fr ;
+    text-align: center;
+}
+
+
+h1{
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+ margin-bottom: 30px;
+
+}
+
+#complete{
+  background-color: #a9cc91;
+  border-radius: 25px;
+  height: 40px;
+  padding-left: 15px;
+ padding-right: 15px;
+
+
+}
+
+#newDate {
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+ font-size: 20px;
+}
+
+#assignmentDets{
+  color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-size: 20px;
+  text-align: center;
+
+
+}
+
+.button{
+  width: 230px;
+  height: 30px;
+  font-size: 15px;
+
+}
+
+#allStuff{
+  background-color: #2f3f7c;
+  color: white;
+
+
+  padding-top: 30px;
+ padding-bottom: 30px;
+ padding-left: 40px;
+padding-right: 30px;
+
+ margin-bottom: 30px;
+ margin-left: 30px;
+ margin-right: 30px;
+ border-radius: 30px;
+
+
+}
+#newDate{
+  color:black;
+}
+#save{
+  background-color: #a9cc91;
+  border-radius: 25px;
+  height: 40px;
+  font-size: 18px;
+
+  padding-left: 15px;
+ padding-right: 15px;
+
+}

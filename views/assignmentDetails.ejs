@@ -1,0 +1,64 @@
+<%- include('partials/header', {title:"Assignment Details", allAss: allAss}) -%>
+
+<h1> assignment details </h1>
+
+<div class="grid2-container">
+  <div class="grid2-child"></div>
+
+<form action="/edit" method="GET" class ="grid2-child " >
+  <input type="submit" id = "edit"  class = "button" name = <%=assignment.id%> value="edit assignment/add tasks" >
+</form>
+
+
+<form action="/deleted" method="GET" class ="grid2-child " >
+  <input type="submit" id = "delete" class = "button" name = <%=assignment.id%> value="delete assignment" >
+</form>
+
+<div class="grid2-child"></div>
+
+
+</div>
+
+<div id = "assignmentDets">
+
+<p> <b> name: </b> <%=assignment.name%></p>
+<p> <b> subject: </b>  <%=assignment.subject%></p>
+<p> <b> description: </b> <%=assignment.desc%></p>
+<p> <b> due: </b> <%=assignment.due%></p>
+
+</div>
+
+
+<div id = "allTasks" class="grid-container">
+<% for (let index in tasks) { %>
+  <% if (tasks[index]["done"] == true){ %>
+    <div id = "doneDetails" class ="grid-child">
+      <%} else {%>
+        <div id ="notDoneDetails" class ="grid-child" >
+          <% } %>
+
+
+  <div id = "taskBody">
+  <p> <i> <%= tasks[index]["desc"]%> </i> </p>
+</div>
+
+  <p> due <a href = '/date/<%=tasks[index]["due"]%>'> <%= tasks[index]["due"]%> </a> </p>
+
+  <% if (tasks[index]["done"] == false){ %>
+
+    <form action="/doneFromPage" method="POST">
+      <% let nam = tasks[index]["pin"]+":"+assignment.id %>
+    <input type="submit"  id = "complete"  name =<%=nam%> value="done"><br>
+    </form>
+        <% } %>
+</div>
+
+
+<%}%>
+
+</div>
+<br>
+
+
+
+<%- include('partials/footer') -%>

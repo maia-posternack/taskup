@@ -1,0 +1,84 @@
+<%- include('partials/header', {title:"Edit", allAss: allAss}) -%>
+
+<h1> edit assignment: <%=ass.name%> </h1>
+<div id="allStuff" >
+
+<form action="/edit" method="POST">
+  <label for= "name" > Name:</label>
+  <input type="text" id="name" name="assignmentName" value=  "<%=ass.name%>" ><br>
+  <label for="subject">Subject:</label>
+  <input type="text" id="subject" name="assignmentSubject" value= "<%=ass.subject%>" ><br>
+  <label for="desc">Description:</label>
+  <%let desc = ass.desc%>
+  <input type="text" id="desc" name="assignmentDesc" value= "<%=desc%>" >  <br>
+  <%console.log(desc)%>
+
+  <label for="due"> Due:</label>
+  <input type="date" id="due" name="assignmentDue" value=<%=ass.due%>><br>
+  <input type="button" id = "taskMaker" value="new task" >
+  <div id = "taskHolder">
+
+    <%for (let tsk in tasks){ %>
+      <label for="newTask">task description: </label>
+      <input type="text" id="newTask" name="taskDesc" value= "<%=tasks[tsk]["desc"]%>" >
+      <label for="newDate"> due date: </label>
+      <input type="date" id="newDate" name="taskDue" value=<%=tasks[tsk]["due"]%> >
+      <input hidden type="text" id="myPin" name="taskPin" value=<%=tasks[tsk]["pin"]%> >
+      <input hidden type="text" id="amIdone" name="taskDone" value=<%=tasks[tsk]["done"]%> >
+
+
+      <br>
+      <% } %>
+
+
+    </div>
+
+    <input hidden type="text" id="myId" name="assId" value=<%=ass.id%> >
+
+
+    <br><br>
+  <input type="submit" value="update assignment" id = "save">
+
+</form>
+</div>
+
+<script>
+  document.getElementById("taskMaker").onclick = function() {myFunction()};
+
+function myFunction() {
+  var putHere = document.getElementById("taskHolder");
+
+
+  var textLabel = document.createElement("label")
+  textLabel.setAttribute('for', 'newTask');
+  textLabel.innerHTML = 'task description:   ';
+  var input = document.createElement("input");
+  input.setAttribute('type', 'text');
+  input.setAttribute('id', 'newTask');
+  input.setAttribute('value', '');
+  input.setAttribute('name', 'taskDesc');
+  var dateLabel = document.createElement("label")
+  dateLabel.setAttribute('for', 'newDate');
+  dateLabel.innerHTML = '  due date:';
+  var date = document.createElement("input")
+  date.setAttribute('type','date')
+  date.setAttribute('id','newDate')
+  date.setAttribute('value', '');
+  date.setAttribute('name', 'taskDue');
+
+
+  var br = document.createElement("br");
+
+  putHere.appendChild(textLabel);
+  putHere.appendChild(input);
+  putHere.appendChild(dateLabel);
+  putHere.appendChild(date);
+  putHere.appendChild(br)
+
+
+}
+</script>
+
+
+
+<%- include('partials/footer') -%>

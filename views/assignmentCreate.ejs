@@ -1,0 +1,62 @@
+<%- include('partials/header', {title:"New Assignment", allAss: allAss}) -%>
+
+<h1>add a new assignment: </h1>
+
+<div id="allStuff" >
+
+<form action="/assignmentCreate" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="assignmentName" value=""><br>
+  <label for="subject">Subject:</label>
+  <input type="text" id="subject" name="assignmentSubject" value=""><br>
+  <label for="desc">Description:</label>
+  <input type="text" id="desc" name="assignmentDesc" value=""><br>
+  <label for="due"> Due: </label>
+  <input type="date" id="due" name="assignmentDue" value=""><br>
+  <input type="button" id = "taskMaker" value="new task" >
+  <div id = "taskHolder">
+    </div>
+
+    <br><br>
+  <input type="submit" value="save assignment!" id = "save">
+
+</form>
+</div>
+
+<script>
+  document.getElementById("taskMaker").onclick = function() {myFunction()};
+
+function myFunction() {
+  var putHere = document.getElementById("taskHolder");
+  var textLabel = document.createElement("label")
+  textLabel.setAttribute('for', 'newTask');
+  textLabel.innerHTML = 'task description:   ';
+  var input = document.createElement("input");
+  input.setAttribute('type', 'text');
+  input.setAttribute('id', 'newTask');
+  input.setAttribute('value', '');
+  input.setAttribute('name', 'taskDesc');
+  var dateLabel = document.createElement("label")
+  dateLabel.setAttribute('for', 'newTask');
+  dateLabel.innerHTML = '  due date:';
+  var date = document.createElement("input")
+  date.setAttribute('type','date')
+  date.setAttribute('id','newDate')
+  date.setAttribute('value', '');
+  date.setAttribute('name', 'taskDue');
+
+  var br = document.createElement("br");
+
+  putHere.appendChild(textLabel);
+  putHere.appendChild(input);
+  putHere.appendChild(dateLabel);
+  putHere.appendChild(date);
+  putHere.appendChild(br)
+
+
+}
+</script>
+
+
+
+<%- include('partials/footer') -%>

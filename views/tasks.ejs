@@ -1,0 +1,52 @@
+<%- include('partials/header', {title:"Tasks for " + day, allAss: allAss}) -%>
+<h1> here you can find all your tasks due <%=day%> </h1>
+
+<% for (todo in tasks){ %>
+
+  <% if (tasks[todo]["done"] == true){ %>
+    <div class = "done">
+      <%} else {%>
+        <div class ="notDone" >
+          <% } %>
+
+  <h3> TASK: <%= tasks[todo]["desc"] %> </h3>
+  <% let pin = tasks[todo]["pin"] %>
+
+
+  <% for (ass in allAss){ %>
+    <% if(allAss[ass]["tasks"]){for (pin2 of allAss[ass]["tasks"]){ %>
+      <%console.log(pin, pin2)%>
+
+      <% if (pin == pin2){ %>
+        <% let link = "/assignment/"+ allAss[ass]["id"]%>
+        <p>for <a href="<%= link %>"> <%= allAss[ass]["name"] %> </a> in  <%= allAss[ass]["subject"] %> </p>
+    <p> assignment description: <i> <%= allAss[ass]["desc"] %> </i> <p>
+
+
+<% }}}} %>
+    <% if (tasks[todo]["done"] == false){ %>
+
+      <form action="/doneFromCal" method="POST">
+        <% let nam = tasks[todo]["pin"]+":"+day %>
+      <input type="submit" id = "complete" name =<%=nam%> value="complete task" ><br>
+      </form>
+          <% } %>
+
+          </div>
+
+
+<% }%>
+
+<div id = "newDate" >
+<form action="/today" method="POST">
+
+<label for="due">look at tasks for a different day:</label>
+<input type="date" id="date" name="newDate" value="">
+<input type="submit" value="see tasks"><br>
+
+
+</form>
+</div>
+
+
+  <%- include('partials/footer') -%>
